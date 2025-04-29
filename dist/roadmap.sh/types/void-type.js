@@ -14,4 +14,15 @@ if (typeof val1 == "undefined") {
 }
 let check = val2;
 let alsoCheck = val1;
+const cb = () => {
+    console.log("Callback");
+    return "hello";
+};
+let result = cb();
+console.log(result);
+console.log(typeof result);
+function voidTest() { }
+;
+let val = voidTest();
+console.log(typeof val);
 //# sourceMappingURL=void-type.js.map

@@ -29,3 +29,33 @@ let check: void = val2;
 let alsoCheck: void = val1; // but undefined can be stored as void
 // so void is more generic
 
+// example: 1
+// is a function's return type is set to void, even if we return something
+// the return value will be ignored
+// so we can return any value, if void is already set
+// but it is treated as ignored
+
+// function voidReturn(): void{
+//     return 100; // can't directly do that, but why?
+// }
+
+type Callback = () => void;
+
+const cb: Callback = ()=> {
+    console.log("Callback");
+    // return 123;
+    return "hello";
+}
+
+let result = cb();
+console.log(result); // 123
+
+console.log(typeof result); // number
+
+// example: 2
+
+function voidTest(): void{};
+
+let val = voidTest();
+console.log(typeof val); // undefined
+
