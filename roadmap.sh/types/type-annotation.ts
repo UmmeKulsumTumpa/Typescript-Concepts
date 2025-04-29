@@ -32,7 +32,9 @@ function add(a: number, b: number): number{
 
 add(5, 9);
 
-// anonymus function
+// -------------------------------------------
+// // anonymous function
+// -------------------------------------------
 
 // contextual typing: the context that the function occurs within inform what type it should have
 // for anonymous function, contextual typing happens
@@ -58,8 +60,9 @@ function printCoord(pt: {x: number, y: number}){
 
 printCoord({x:8, y:9});
 
-
+// -------------------------------------------
 // optional properties
+// -------------------------------------------
 // to specify a property to be optional, add  a ? after the property name
 
 function printFullName(obj: {first: string, last?: string}){
@@ -68,3 +71,59 @@ function printFullName(obj: {first: string, last?: string}){
 
 printFullName({first: "Tumpa"}); // now we have the flexibility not to specify the last name
 // but inside the function, it is set undefined if we don't pass it
+
+// -------------------------------------------
+// type aliases
+// -------------------------------------------
+
+type Point = {
+    x: number,
+    y: number,
+};
+
+function aliasPrintCoord(pt: Point){
+    console.log(`The coordinate's x value is ${pt.x}`);
+    console.log(`The coordinate's y value is ${pt.y}`);
+}
+
+aliasPrintCoord({x: 10, y: 20});
+
+
+// -------------------------------------------
+// union types
+// -------------------------------------------
+
+function printId(id: string | number,){
+    console.log("Your id is: " + id);
+};
+
+printId(1307); // OK
+printId("1307"); // OK
+// printId({myId: 1307}); // error, cause the id can only be string or number,
+// so passing an object will through an error
+
+// what will we do when we are setting union for a parameter
+// example: 1
+
+function idPrint(id: number | string){
+    // console.log(id.toUpperCase()); // we can't use only string property when we declare the parameter acceptable as both string and number
+    // we must use something that are both compatible for all the types of union members
+}
+
+// example: 2
+// the solution to the above problem is to narrow the union with code
+function idPrint2(id: number | string){
+    if(typeof id === "string"){
+        // for this block, the id will be treated as string
+        console.log(`UpperCase ID: ${id.toUpperCase()}`);
+    }
+    else{
+        // for this block, the id will be treated as number
+        console.log(`${id} % 1300 = ${id % 1300}`);
+    }
+}
+
+idPrint2(1307); //
+idPrint2("idwillbeuppercase");
+
+
