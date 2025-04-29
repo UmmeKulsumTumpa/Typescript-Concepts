@@ -126,4 +126,24 @@ function idPrint2(id: number | string){
 idPrint2(1307); //
 idPrint2("idwillbeuppercase");
 
+// -------------------------------------------
+// literal types
+// -------------------------------------------
+
+// literal types aren't very valuable -> donno why it is said!
+
+let x: "hello" = "hello";
+
+x = "hello"; // OK
+// x = "world"; // error, Type '"world"' is not assignable to Type '"hello"'
+
+// but it is useful in some cases when we can combine literals with union
+function alignElement(str: string, alignment: "left" | "right" | "center"){
+    console.log(`${str} aligns at ${alignElement}`);
+}
+
+alignElement("Hello", "right");
+// alignElement("World", "centre"); // error, centre is not a type which are accepted
+
+
 

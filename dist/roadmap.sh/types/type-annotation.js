@@ -48,4 +48,10 @@ function idPrint2(id) {
 }
 idPrint2(1307);
 idPrint2("idwillbeuppercase");
+let x = "hello";
+x = "hello";
+function alignElement(str, alignment) {
+    console.log(`${str} aligns at ${alignElement}`);
+}
+alignElement("Hello", "right");
 //# sourceMappingURL=type-annotation.js.map
