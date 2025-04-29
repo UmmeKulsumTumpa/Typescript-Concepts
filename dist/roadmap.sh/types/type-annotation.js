@@ -16,4 +16,13 @@ fruits.forEach(function (ele) {
 fruits.forEach((ele) => {
     console.log(`arrow: ${ele}`);
 });
+function printCoord(pt) {
+    console.log(`The coordinate's x value is ${pt.x}`);
+    console.log(`The coordinate's y value is ${pt.y}`);
+}
+printCoord({ x: 8, y: 9 });
+function printFullName(obj) {
+    console.log(`full name: ${obj.first} ${obj.last}`);
+}
+printFullName({ first: "Tumpa" });
 //# sourceMappingURL=type-annotation.js.map
