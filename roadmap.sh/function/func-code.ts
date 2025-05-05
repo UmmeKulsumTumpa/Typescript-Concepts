@@ -101,3 +101,64 @@ function runCallBack(cb: (x: number, y: number) => void){
 }
 
 runCallBack((x: number) => console.log(x)); // logs: 1, compatible, ignores the extra param
+
+
+// rest params and args
+// rest params
+function restMultiply(num: number, ...m: number[]){
+    return m.map(x => num * x);
+}
+
+const a = restMultiply(5, 1, 2, 3, 4, 5);
+
+console.log(a);
+
+// rest args
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+arr1.push(...arr2); // kinda concatenate type, joins the two arrays
+console.log(arr1);
+
+// parameter destructuring
+function sumFunc({a, b, c}: {a: number, b: number, c: number}){
+    return a+b+c;
+}
+
+console.log(sumFunc({a: 1, b: 3, c: 4})); // so the names must be the same as teh function definition params list.
+
+// return type void
+type voidFunc = () => void; // js has no type annotation
+
+const f1: voidFunc = () => {
+    return true;
+}
+
+const f2: voidFunc = () => true;
+
+const f3: voidFunc = function() {
+    return true;
+}
+
+console.log(typeof f1());
+console.log(f2());
+console.log(f3());
+
+const resf1 = f1();
+
+if(typeof resf1 === "undefined")
+    console.log(`f1 returned undefined`);
+else if(typeof resf1 === "boolean")
+    console.log(`f1 returned boolean`);
+
+// the below code will compiled to undefined in case of void return type
+type voidFunc2 = () => void;
+
+const f11: voidFunc2 = () => {
+    return true;
+}
+
+const resf11 = f11();
+console.log(typeof resf11); // undefined
+
+
