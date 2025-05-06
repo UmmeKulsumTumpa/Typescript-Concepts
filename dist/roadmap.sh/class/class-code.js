@@ -33,4 +33,14 @@ class DemoPoint {
 }
 const pt1 = new DemoPoint("10");
 console.log(pt1.x, pt1.y);
+class Sonar {
+    ping() {
+        console.log("ping!");
+    }
+}
+class NameCheck {
+    check(s) {
+        return s.toLowerCase() === "ok";
+    }
+}
 //# sourceMappingURL=class-code.js.map

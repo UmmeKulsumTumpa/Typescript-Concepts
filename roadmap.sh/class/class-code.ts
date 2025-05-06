@@ -57,4 +57,36 @@ class DemoPoint{
 const pt1 = new DemoPoint("10");
 console.log(pt1.x, pt1.y); // 0, 0
 
+// for get and set, if get exists but no set, 
+// the property is automatically readonly
 
+// implement clauses
+interface Pingable {
+    ping(): void;
+}
+
+class Sonar implements Pingable{
+    ping(): void {
+        console.log("ping!"); // this correctly implements the method of the interface
+    }
+}
+
+// class Ball implements Pingable{
+//     pong(){
+//         console.log("pong"); // incorrectly implements the Pingable class
+//     }
+// }
+
+// also we can extend and implement at the same time
+
+interface Checkable {
+    check(name: string): boolean;
+}
+
+class NameCheck implements Checkable {
+    check(s: string): boolean { // parameter has implicit type any, because the compiler does not automatically make s as string
+        return s.toLowerCase() === "ok";   // so no error here, any has no error if some method is called
+    }
+}
+
+// implement clause does not automatically add the optional property to class
